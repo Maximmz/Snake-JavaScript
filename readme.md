@@ -1,0 +1,1 @@
+Play the game at: https://maximmz.github.io/Snake-JavaScript/
