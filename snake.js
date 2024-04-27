@@ -1,5 +1,5 @@
 //Define snake board
-var blockSize = 25;
+var blockSize = 40;
 var rows = 18;
 var cols = 18;
 var board;
