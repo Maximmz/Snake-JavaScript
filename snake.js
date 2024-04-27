@@ -1,5 +1,5 @@
 //Define snake board
-var blockSize = 40;
+var blockSize = 35;
 var rows = 18;
 var cols = 18;
 var board;
@@ -39,7 +39,14 @@ window.onload = function() {
 
 function update() {
     if(gameOver) {
-        return;
+        alert("Game Over!");
+        snakeX = blockSize * 5;
+    snakeY = blockSize * 5;
+    velocityX = 0;
+    velocityY = 0;
+    snakeBody = [];
+    placeFood();
+    gameOver = false;
     }
     context.fillStyle = "black";
     context.fillRect(0,0,board.width,board.height);
