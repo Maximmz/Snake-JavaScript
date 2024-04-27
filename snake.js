@@ -23,7 +23,7 @@ var foodX;
 var foodY;
 var centerX
 var centerY
-var radius = 1.2*blockSize/2;
+var radius = blockSize/2;
 var gameOver = false;
 
 window.onload = function() {
@@ -34,7 +34,7 @@ window.onload = function() {
     placeFood();
     document.addEventListener("keyup", changeDirection);
     //update();
-    setInterval(update, 1500/10); //Update runs every 200ms
+    setInterval(update, 1200/10); //Update runs every 120ms
 }
 
 function update() {
