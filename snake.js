@@ -25,6 +25,7 @@ var centerX
 var centerY
 var radius = blockSize/2;
 var gameOver = false;
+let score = 0;
 
 window.onload = function() {
     board = document.getElementById("snakeboard")
@@ -39,7 +40,7 @@ window.onload = function() {
 
 function update() {
     if(gameOver) {
-        alert("Game Over!");
+        alert("Game Over! You collected " + score + " points");
         snakeX = blockSize * 5;
     snakeY = blockSize * 5;
     velocityX = 0;
@@ -47,6 +48,7 @@ function update() {
     snakeBody = [];
     placeFood();
     gameOver = false;
+    score = 0;
     }
     context.fillStyle = "black";
     context.fillRect(0,0,board.width,board.height);
@@ -56,8 +58,14 @@ function update() {
     context.fillStyle = "orange";
     context.fill(); // Fill the circle with lime color
     context.closePath();
+    context.font = "26px serif";
+    context.fillText("Score: " + score, 10, 30,100)
 
     if(snakeX == foodX && snakeY == foodY) {
+        score +=250;
+
+        // Update the canvas text to reflect the new score
+        context.fillText("Score: " + score, 10, 40, 100);
         snakeBody.push([foodX, foodY])
         console.log(snakeBody);
         placeFood();
@@ -80,7 +88,7 @@ function update() {
     //Game over
     if(snakeX < 0 || snakeX > cols*blockSize || snakeY < 0 || snakeY > rows*blockSize) {
         gameOver = true;
-        alert("Game Over!");
+        
     }
     for(let i = 0; i < snakeBody.length; i++) {
         if(snakeX == snakeBody[i][0] && snakeY== snakeBody[i][1]){
